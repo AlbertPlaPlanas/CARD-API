@@ -64,7 +64,7 @@ The CARD REST API allows users to perform cell deconvolution using spatial trans
 ```sh
 docker pull albertplaplanas/card-api
 docker run -p 8000:8000 albertplaplanas/card-api
-``
+```
 
 ### Local Development
 
