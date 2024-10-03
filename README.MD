@@ -59,11 +59,12 @@ The CARD REST API allows users to perform cell deconvolution using spatial trans
 
    The API will be available at `http://localhost:8000`.
 
-Alterntively, download the docker image from ()[] and run the docker container.
-    ```sh
-    docker pull albertplaplanas/card-api
-    docker run -p 8000:8000 albertplaplanas/card-api
-    ```
+- Alternatively, download the Docker image from [DockerHub](https://hub.docker.com/r/albertplaplanas/card-api) and run the Docker container.
+
+```sh
+docker pull albertplaplanas/card-api
+docker run -p 8000:8000 albertplaplanas/card-api
+``
 
 ### Local Development
 
