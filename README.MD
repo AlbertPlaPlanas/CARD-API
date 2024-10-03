@@ -1,6 +1,8 @@
 # CARD REST API
 
-This repository contains a REST API for the [CARD (Cell-type Assignment of RNA-seq Data)](https://github.com/YOUR_LINK_HERE) package, used for cell deconvolution in spatial transcriptomics data. The API is implemented using `plumber` in R and is containerized with Docker for easy deployment.
+This repository contains a REST API for the [CARD (Cell-type Assignment of RNA-seq Data)](https://github.com/YMa-lab/CARD) package, used for cell deconvolution in spatial transcriptomics data. The API is implemented using `plumber` in R and is containerized with Docker for easy deployment.
+
+All CARD credit belongs to Y.Ma et al.
 
 ## Table of Contents
 
@@ -41,7 +43,7 @@ The CARD REST API allows users to perform cell deconvolution using spatial trans
 
 1. **Clone the Repository**:
     ```sh
-    git clone https://github.com/YOUR_USERNAME/CARD-REST-API.git
+    git clone https://github.com/AlbertPlaPlanas/CARD-REST-API.git
     cd CARD-REST-API
     ```
 
