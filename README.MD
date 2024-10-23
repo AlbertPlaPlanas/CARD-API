@@ -59,26 +59,65 @@ The CARD REST API allows users to perform cell deconvolution using spatial trans
 
    The API will be available at `http://localhost:8000`.
 
-- Alternatively, download the Docker image from [DockerHub](https://hub.docker.com/r/albertplaplanas/card-api) and run the Docker container.
-
-```sh
-docker pull albertplaplanas/card-api
-docker run -p 8000:8000 albertplaplanas/card-api
-```
-
+    Alternatively, download the Docker image from    [DockerHub](https://hub.docker.com/r/albertplaplanas/card-api) and run the Docker container.
+    ```sh
+    docker pull albertplaplanas/card-api
+    docker run -p 8000:8000 albertplaplanas/card-api
+    ```
+   
 ### Local Development
 
 For local development without Docker:
 
-1. **Install Dependencies**:
-    Ensure you have the required R version and packages. Install dependencies by running:
+1. **Install Dependencies**: Ensure you have the required R version and packages. Install dependencies by running:
+
     ```R
     source('requirements.R')
     ```
 
 2. **Run the API**:
+
     ```sh
     Rscript run.R
     ```
 
-## End
+
+## Endpoints
+
+### `/predict` (POST)
+
+- **Description**: Submit spatial transcriptomics data to run the CARD model and receive cell deconvolution results.
+- **Parameters**:
+  - `configs` (JSON): Configuration parameters for the CARD model.
+  - `atlas_filename_ext` (String): File extension for the atlas file.
+  - `sample_id` (String): Identifier for the sample being analyzed.
+- **Example Request**: See [Example REST API Calls](#example-rest-api-calls).
+
+### `/test` (GET)
+
+- **Description**: A simple endpoint to check if the API is running correctly.
+- **Returns**: A static message confirming the API is up.
+
+### `/echo` (GET)
+
+- **Description**: Echoes back the message provided in the query parameter.
+- **Parameters**:
+  - `msg` (String): The message to echo.
+
+## Example REST API Calls
+
+To test the `/predict` endpoint, you can use the following `curl` command:
+
+```sh
+curl -X POST "http://localhost:8000/predict" \
+    -H "Content-Type: application/json" \
+    -d '{
+        "configs": "{\"params\": {\"sc_sample_key\": \"sample_key_1\", \"atlas_type\": \"atlasA\"}}",
+        "atlas_filename_ext": ".h5ad",
+        "sample_id": "sample123",
+        "prep_path": "/path/to/preparation/",
+        "results_path": "/path/to/results/",
+        "reference_path": "/path/to/reference/",
+        "prefix": "my_prefix"
+    }'
+
